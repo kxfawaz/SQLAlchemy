@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+</head>
+<body>
+    <body>
+        <h1>Edit Post</h1>
+        <form action="/posts/{{post.id}}/edit" method="POST">
+            <input type="text" name="title" placeholder="edit title">
+            <input type="text" name="content" placeholder="edit content">
+            
+        {% for tag in tags %}
+        <input type="checkbox" value="{{tag.id}}", id="tag_{{tag.id}}, name="tags">
+        <label for="tag_{{tag.id}}">{{tag.name}}</label>
+        {% endfor %}
+        <a href="/users/{{post.user_id}}">Cancel</a>
+        <button type="submit">Edit</button>
+        </form>
+</body>
+</html>

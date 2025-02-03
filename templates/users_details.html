@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+</head>
+<body>
+    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+
+{% if user.image_url %}
+    <img src="{{ user.image_url }}" alt="{{ user.first_name }}'s image">
+{% else %}
+    <p>No image available</p>
+{% endif %}
+<br>
+
+<a href="/users/{{user.id}}/edit"><button>Edit user</button></a>
+
+<form action="/users/{{user.id}}/delete" method="POST" style="display:inline;">
+
+<button type="submit">Delete User</button>
+
+</form>
+
+<ul>
+    {% for post in user.posts %}
+    <li>
+      <a href="/posts/{{ post.id}}">{{ post.title }}</a>
+
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p><a href="/users/{{ user.id }}/posts/new">Add Post</a></p>
+  <p><a href="/tags/new">Create Tag</a></p>
+
+</body>
+</html>

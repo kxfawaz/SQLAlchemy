@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Details</title>
+</head>
+<body>
+
+    <h2>{{tag.name}}</h2>
+    <ul>
+    {% for post in tag.posts %}
+    <li><a href="/posts/{{ post.id}}">{{post.title}}</a></li>
+     {% endfor %}
+    </ul>
+
+    <button>
+    <a href="/tags/{{tag.id}}/edit">Edit Tag</a>
+    </button>
+    </form>
+</body>
+</html>
